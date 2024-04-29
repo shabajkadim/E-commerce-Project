@@ -4,7 +4,7 @@ import { AuthContext } from '../context/AuthContext'
 import loadingIcon from  './../project-imge/loading-icon.gif'
 import axios from 'axios'
 import {setDataProduct} from '../redux/productSlice'
-import { useDispatch, useSelector} from 'react-redux'
+import { useDispatch} from 'react-redux'
 
 const Demo = () => {
   const{state,LOGOUT}=useContext(AuthContext)

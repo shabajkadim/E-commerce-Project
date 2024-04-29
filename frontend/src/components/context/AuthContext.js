@@ -108,7 +108,7 @@ const AuthContextComponent=({children})=>{
         if(token){
             getuserData(token)
         }
-    },[])
+    },[getuserData()])
     
 return(
     <AuthContext.Provider value={{state,LOGIN,LOGOUT,dispatch}}> 
