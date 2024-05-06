@@ -2,8 +2,13 @@
 
 
 // export const CheckPayment=async(req,res)=>{
+<<<<<<< HEAD
 //     // console.log(process.env.STRIPE_SECRET_KEY);
 //     console.log(req.body);
+=======
+//     console.log(process.env.STRIPE_SECRET_KEY);
+//     // console.log(req.body);
+>>>>>>> 409d359ff0ef8ab804fb5c85773ba9d153ba2608
 //     try{
 //         const stripe=new Stripe(process.env.STRIPE_SECRET_KEY) 
 //         const params={
@@ -40,6 +45,7 @@
 //     res.send({message:"paymentsuccess",success:true})
 // }
 
+<<<<<<< HEAD
 
 
 
@@ -79,3 +85,8 @@ export const CheckPayment = async (req, res) => {
         return res.status(error.statusCode || 500).json({ error: error.message });
     }
 };
+=======
+export const CheckPayment=async(req,res)=>{
+    console.log(req.body);
+}
+>>>>>>> 409d359ff0ef8ab804fb5c85773ba9d153ba2608

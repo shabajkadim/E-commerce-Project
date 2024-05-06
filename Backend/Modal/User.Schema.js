@@ -18,6 +18,13 @@ const UserSchema = new Schema({
     password: {
         type: String,
         required: true 
+<<<<<<< HEAD
+=======
+    },
+    image: {
+        type: String,
+        required: true 
+>>>>>>> 409d359ff0ef8ab804fb5c85773ba9d153ba2608
     }
 });
 

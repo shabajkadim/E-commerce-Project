@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // import axios from 'axios'
 // import React, { useEffect, useState } from 'react'
 // import { useParams } from 'react-router-dom';
@@ -74,6 +75,8 @@
 // export default Menu
 
 
+=======
+>>>>>>> 409d359ff0ef8ab804fb5c85773ba9d153ba2608
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
@@ -102,7 +105,11 @@ const Menu = () => {
 
   const getSingleProduct=async()=>{
     try {
+<<<<<<< HEAD
       const response = await axios.get(`${process.env.REACT_APP_SERVER_DOMIN}/api/v1/product/get-product`);
+=======
+      const response = await axios.get('http://localhost:8000/api/v1/product/get-product');
+>>>>>>> 409d359ff0ef8ab804fb5c85773ba9d153ba2608
       if (response?.data.success) {
         setSingleData(response.data.getAllData);
       }

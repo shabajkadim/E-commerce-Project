@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // import { useSelector } from "react-redux";
 // import { CartProduct } from "../All-products/CartProduct";
 
@@ -87,6 +88,13 @@ import { CartProduct } from "../All-products/CartProduct";
 import axios from 'axios'
 import {loadStripe} from '@stripe/stripe-js'
 import toast from "react-hot-toast";
+=======
+import { useSelector } from "react-redux";
+import { CartProduct } from "../All-products/CartProduct";
+import axios from "axios";
+import toast from "react-hot-toast";
+import { loadStripe } from "@stripe/stripe-js";
+>>>>>>> 409d359ff0ef8ab804fb5c85773ba9d153ba2608
 
 const Cart = () => {
   const productCartItem = useSelector((state) => state.product.cartItem);
@@ -97,6 +105,7 @@ const Cart = () => {
     0
   );
   const totalQty = productCartItem.reduce((acc, curr) => acc + parseInt(curr.qty), 0);
+<<<<<<< HEAD
     
 
   
@@ -159,6 +168,75 @@ const handlePayment = async () => {
 
 
 return (
+=======
+
+
+//   const handlePayment=async()=>{
+//     try{
+        
+//         const res=await axios.post("http://localhost:8000/api/v1/check-payment",{
+          
+//         headers:{
+//         "content-type":"application/json"
+//       },
+//       body:JSON.stringify(productCartItem),
+      
+//     })
+//     if(res.statuscode === 500) return
+//     const data={
+//       success:true,
+//       message:"payment",
+//       product:productCartItem
+//     }
+//     toast("Redirect to payment gatway....")
+//     console.log(data,"data");
+// const stripePromise=await loadStripe(process.env.REACT_STRIPE_PUBLIC_KEY) 
+//     stripePromise.redirectToCheckout({sessionId:data})
+//       }catch(error){
+//         console.log(error,"payment page");
+//       }
+//   }
+
+// const handlePayment=async()=>{
+//      const stripePromise=await loadStripe(process.env.REACT_STRIPE_PUBLIC_KEY)  
+//       const res=await axios.post("http//:localhost:8000/check-payment",{
+        
+//       headers:{
+//       "content-type":"application/json"
+//     },
+//     body:JSON.stringify(productCartItem),
+    
+//   })
+//   if(res.statuscode === 500) return
+
+//   const data=await res.json()
+//   // const data={
+//   //   success:true,
+//   //   message:"payment",
+//   //   product:productCartItem
+//   // }
+//   toast("Redirect to payment gatway....")
+//   console.log(data,"data");
+//   stripePromise.redirectToCheckout({sessionId:data})
+    
+// }
+
+const handlePayment = async () => {
+  try {
+    const res = await axios.post("http://localhost:8000/api/v1/check-payment", productCartItem);
+    const sessionId = res.data;
+    toast("Redirecting to payment gateway...");
+    const stripePromise = await loadStripe(process.env.REACT_STRIPE_PUBLIC_KEY);
+    const stripe = await stripePromise;
+    stripe.redirectToCheckout({ sessionId });
+  } catch (error) {
+    console.error("Error occurred while making payment:", error);
+    toast.error("Payment failed. Please try again later.");
+  }
+};
+    
+  return (
+>>>>>>> 409d359ff0ef8ab804fb5c85773ba9d153ba2608
     <>
       <div className="pt-20 bg-slate-100 p-2:p-4 min-h-0 min-h-[650px]">
         <div className="text-lg md:text-3xl font-bold text-slate-600 ml-2">
@@ -206,14 +284,22 @@ return (
                 </p>
               </div>
 
+<<<<<<< HEAD
               <button onClick={handlePayment} className="bg-red-400 w-full p-3 text-white text-lg font-bold m-auto hover:bg-red-600"  > 
+=======
+              <button className="bg-red-400 w-full p-3 text-white text-lg font-bold m-auto hover:bg-red-600" onClick={handlePayment}>
+>>>>>>> 409d359ff0ef8ab804fb5c85773ba9d153ba2608
                 Payment
               </button>
             </div>
           </div>
           :
           <>
+<<<<<<< HEAD
           <div className="flex flex-col  w-full  md:w-96 m-auto">
+=======
+          <div className="flex flex-col w-96 m-auto">
+>>>>>>> 409d359ff0ef8ab804fb5c85773ba9d153ba2608
             <p><img src="https://bexcart.com/assets/images/empty-cart.gif" alt="emptycart"  className=""/></p>
             <p className="text-4xl font-bold  text-center">Empty Cart </p>
           </div>

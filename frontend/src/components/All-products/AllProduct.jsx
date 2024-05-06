@@ -11,7 +11,11 @@ export const AllProduct = ({category}) => {
     const router=useNavigate()
 
     const vegetableProduct = products.filter((element) => element.category === "vegetable",[]);
+<<<<<<< HEAD
   console.log(vegetableProduct, "111111");
+=======
+  console.log(vegetableProduct);
+>>>>>>> 409d359ff0ef8ab804fb5c85773ba9d153ba2608
 
   const categoryList=[...new Set(products.map((data)=>
     {return (
@@ -39,7 +43,11 @@ export const AllProduct = ({category}) => {
   async function getProducts() {
     try {
       const response = await axios.get(
+<<<<<<< HEAD
         `${process.env.REACT_APP_SERVER_DOMIN}/api/v1/product/get-product`
+=======
+        "http://localhost:8000/api/v1/product/get-product"
+>>>>>>> 409d359ff0ef8ab804fb5c85773ba9d153ba2608
       );
       if (response?.data.success) {
         setProducts(response.data.getAllData);

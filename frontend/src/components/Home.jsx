@@ -34,7 +34,11 @@ const Home = () => {
   async function getProducts() {
     try {
       const response = await axios.get(
+<<<<<<< HEAD
         `${process.env.REACT_APP_SERVER_DOMIN}/api/v1/product/get-product`
+=======
+        "http://localhost:8000/api/v1/product/get-product"
+>>>>>>> 409d359ff0ef8ab804fb5c85773ba9d153ba2608
       );
       if (response?.data.success) {
         setProducts(response.data.getAllData);
@@ -75,7 +79,11 @@ const Home = () => {
               />
             </span>
           </p>
+<<<<<<< HEAD
           <p className="text-4xl font-bold  md:text-7xl font-bold">
+=======
+          <p className="text-7xl font-bold">
+>>>>>>> 409d359ff0ef8ab804fb5c85773ba9d153ba2608
             The Fasted Delivery In{" "}
             <span className="text-red-500">Your Home</span>
           </p>
@@ -84,7 +92,13 @@ const Home = () => {
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text
             ever since the 1500s, when an unknown printer took a galley of type
+<<<<<<< HEAD
             and scrambled it to make a type specimen book. 
+=======
+            and scrambled it to make a type specimen book. It has survived not
+            only five centuries, but also the leap into electronic typesetting,
+            remaining essentially unchanged.
+>>>>>>> 409d359ff0ef8ab804fb5c85773ba9d153ba2608
           </p>
           <button className="bg-red-500 hover:bg-red-700 mt-2 h-10 w-40 text-slate-100  font-bold rounded-md">
             ORDER NOW

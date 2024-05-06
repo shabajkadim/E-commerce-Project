@@ -1,5 +1,6 @@
 
 import UserSchema from "../Modal/User.Schema.js"
+<<<<<<< HEAD
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 
@@ -8,12 +9,24 @@ export const SignUp = async (req, res) => {
     try {
         // const { firstname, lastname, email, password, confirmPassword, image } = req.body;
           const { firstname, lastname, email, password, confirmPassword } = req.body.data;
+=======
+// import UserSchema from '../Modal/User.Schema';
+import bcrypt from 'bcrypt'
+import jwt from 'jsonwebtoken'
+import { connect } from "mongoose";
+
+export const SignUp = async (req, res) => {
+    try {
+        // const { firstname, lastname, email, password, confirmPassword, image } = req.body;
+          const { firstname, lastname, email, password, confirmPassword ,image} = req.body.data;
+>>>>>>> 409d359ff0ef8ab804fb5c85773ba9d153ba2608
 
         // console.log(req.body);
 
         if (!firstname || !lastname || !email || !password || !confirmPassword) {
             return res.status(400).send("All fields are required");
         }
+<<<<<<< HEAD
         
 
         const emailIsExist = await UserSchema.find({ email: email });
@@ -22,6 +35,18 @@ export const SignUp = async (req, res) => {
             return res.status(400).send("Email is already registered");
         }
 
+=======
+        if(!image){
+            return res.status(400).json({success:false , message:"please upload youre image"})
+        }
+
+        const emailIsExist = await UserSchema.find({ email: email });
+
+        if (emailIsExist.length > 0) {
+            return res.status(400).send("Email is already registered");
+        }
+
+>>>>>>> 409d359ff0ef8ab804fb5c85773ba9d153ba2608
         if (password !== confirmPassword) {
             return res.status(400).send("Password and Confirm Password do not match");
         }
@@ -32,7 +57,12 @@ export const SignUp = async (req, res) => {
             firstname: firstname,
             lastname: lastname,
             email: email,
+<<<<<<< HEAD
             password: hashPassword
+=======
+            password: hashPassword,
+            image: image
+>>>>>>> 409d359ff0ef8ab804fb5c85773ba9d153ba2608
         });
 
         // console.log(user);
@@ -98,7 +128,11 @@ export const getCurrentUser=async(req,res)=>{
 		if (!user) {
             return res.status(404).json({ success: false })
         }
+<<<<<<< HEAD
         return res.status(200).json({success:true, user: { firstname: user.firstname, email: user.email, userId: user._id }})
+=======
+        return res.status(200).json({success:true, user: { name: user.name, email: user.email, userId: user._id }})
+>>>>>>> 409d359ff0ef8ab804fb5c85773ba9d153ba2608
     }catch(error){
         return res.status(500).json({success:false, error:error})
     }

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // import React, { useContext, useState } from "react";
 // import loginSignUpImage from "./../project-imge/login-animation.gif";
 // import { Link, useNavigate } from "react-router-dom";
@@ -117,6 +118,8 @@
 
 
 
+=======
+>>>>>>> 409d359ff0ef8ab804fb5c85773ba9d153ba2608
 import React, { useContext, useState } from "react";
 import loginSignUpImage from "./../project-imge/login-animation.gif";
 import { Link, useNavigate } from "react-router-dom";
@@ -150,14 +153,22 @@ const {LOGIN}=useContext(AuthContext)//mydata
     event.preventDefault();
     try {
       if (loginData.email && loginData.password) {
+<<<<<<< HEAD
         const response = await axios.post(`${process.env.REACT_APP_SERVER_DOMIN}/api/v1/auth/login`, { loginData });
+=======
+        const response = await axios.post("http://localhost:8000/api/v1/auth/login", { loginData });
+>>>>>>> 409d359ff0ef8ab804fb5c85773ba9d153ba2608
         // const response={data:{success:true , message:"login suucessfulr",token:"qhdfewghukb45",userData:{name:"shabaaj",email:"shabaaj@1234"}}}
             if(response.data.success===true){
               localStorage.setItem("token",JSON.stringify(response.data.token))
               LOGIN(response.data.user)//mydata
               alert(response.data.message)
               setLoginData({email:"" , password:""})
+<<<<<<< HEAD
               router('/')
+=======
+              router('/demo')
+>>>>>>> 409d359ff0ef8ab804fb5c85773ba9d153ba2608
               
             }
       } else {
