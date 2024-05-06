@@ -1,29 +1,26 @@
-import express from 'express'
-import cors from 'cors'
-import dotenv, { config } from 'dotenv'
-import AllRoutes  from './Router/index.js'
-import mongoose from 'mongoose'
+import express from 'express';
+import cors from 'cors';
+import dotenv from 'dotenv';
+import AllRoutes from './Router/index.js';
+import mongoose from 'mongoose';
 
 
+const app = express();
+app.use(express.json({ limit: "10mb" }));
+app.use(cors());
+dotenv.config();
+
+app.get('/', (req, res) => {
+  res.send("server is...");
+});
+
+app.use('/api/v1', AllRoutes);
 
 
-const app=express()
-app.use(express.json())
-app.use(cors())
-dotenv.config()
+mongoose.connect(process.env.DATABASE_URL).then(() => {
+  console.log("Database connected..");
+});
 
-app.get('/',((req,res)=>{
-    res.send("welcome....")
-}))
-
-app.use('/api/v1',AllRoutes)
-
-
-
-
-mongoose.connect(process.env.DATABASE_URL).then(()=>{
-    console.log("Database connect");
-})
-
-app.listen(8050,(()=>{console.log("running on port 8000")}))
-
+app.listen(8000, () => {
+  console.log("server running on port 8000");
+});
