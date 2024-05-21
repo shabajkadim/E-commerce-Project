@@ -2,10 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 // import { FaPlus } from "react-icons/fa"
 // import { FaMinus } from "react-icons/fa"
-<<<<<<< HEAD
 // import { FaTrash } from "react-icons/fa6";
-=======
->>>>>>> 409d359ff0ef8ab804fb5c85773ba9d153ba2608
 import { deleteCartItem ,incrementQty,decrementQty} from "../redux/productSlice";
 
 export const CartProduct = ({
@@ -22,13 +19,7 @@ export const CartProduct = ({
   return (
     <div className="bg-slate-200 p-2 gap-3 md:gap-5 md:flex border border-slate-300 rounded ">
       <div className="bg-white p-3 w-[220px] rounded h-[180px] overflow-hidden">
-<<<<<<< HEAD
         <img src={image} className=" w-full h-full bg-slate-white object-cover" alt="cartimage"
-=======
-        <img
-          src={image}
-          className=" w-full h-full bg-slate-white object-cover"
->>>>>>> 409d359ff0ef8ab804fb5c85773ba9d153ba2608
         />
       </div>
 
@@ -39,10 +30,7 @@ export const CartProduct = ({
           </p>
           <div className="text-xl text-slate-700 hover:text-red-600 cursor-pointer" onClick={()=>dispatch(deleteCartItem(id))}>
             <i class="fa-solid fa-trash"></i>
-<<<<<<< HEAD
             {/* <FaTrash/> */}
-=======
->>>>>>> 409d359ff0ef8ab804fb5c85773ba9d153ba2608
           </div>
         </div>
         <p className=" capitalize font-medium text-slate-500 text-lg md:text-xl ">
